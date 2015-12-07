@@ -1,0 +1,44 @@
+
+
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+
+        <button type="button" class="close" ng-click="cancel()">&times;</button>
+
+        <h4 class="modal-title">Cadastrar Produtos</h4>
+    </div>
+    <div class="modal-body">
+        <form name="addProductForm" ng-controller="GemController as gemCtrl"
+              ng-submit="addProductForm.$valid && gemCtrl.addGem()" novalidate> <!--&& gemCtrl.addGem()" novalidate-->
+            <input type="hidden" name="opcao" value="cadastrar"> 
+            <div class="form-group">
+                <label for="usr">Nome:</label>
+                <input name="nameProduct" ng-model="gemCtrl.gems.name" type="text" class="form-control" maxlength="80"required/><br>
+            </div>
+
+            <div class="form-group">
+                <label for="usr">Preço:</label>
+                <input name="priceProduct" ng-model="gemCtrl.gems.price" type="number" class="form-control" maxlength="5"required/><br>
+            </div>
+
+            <div class="form-group">
+                <label for="usr">Imagem:</label>
+                <input name="imageProduct" ng-model="gemCtrl.gems.image" type="text" class="form-control" maxlength="150" required/><br>
+            </div>
+
+            <div class="form-group">
+                <label for="usr">Descrição:</label>
+                <textarea name="descriptionProduct"  ng-model="gemCtrl.gems.description" class="form-control" maxlength="150" required></textarea><br>
+            </div>
+
+            <button class="btn btn-default pull-right" ng-click="ok()" ng-disabled="addProductForm.$invalid">Cadastrar</button><!--ng-click="ok()" ng-disabled="addProductForm.$invalid">Cadastrar</button-->
+            <button class="btn btn-danger" ng-click="cancel()">Cancelar</button>
+
+        </form>
+    </div>
+</div>
+
+
+
+

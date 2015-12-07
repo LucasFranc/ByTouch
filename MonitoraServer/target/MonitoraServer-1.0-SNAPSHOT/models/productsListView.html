@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row" >
+        <ul class="list-group">
+            <li class="list-group-item post-container" ng-repeat="product in store.products">
+
+
+                <div class="col-md-3 col-md-6 col-md-3 image-container">
+                    <div class="hovereffect">
+                        <img src="{{product.image}}" onerror="if (this.src != 'img/noImage.png')this.src = 'img/noImage.png';"  class="productImage"  ng-click="editProduct(product)" />
+                        <div class="overlay" style="border-radius: 4px">
+                            <a href="" ng-click="editProduct(product)">
+                                <h2>Editar</h2>
+                            </a>
+                            <a href="" ng-click="deleteProduct(product,$index)">
+                                <h2>Deletar</h2>
+                            </a> 	
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6 col-md-6 col-xs-12"> 
+                    <div>
+                        <h3>
+                            {{product.name}}
+                            <p>{{product.price| currency:'R$'}}</p>
+                        </h3>
+                    </div> 
+                </div>
+
+                <div class="col-md-6 col-md-6 pull-left">
+                    <section ng-controller="PanelController as panel">
+                        <h3>Descrição</h3>
+                        <p>{{product.description}}</p>
+                    </section>
+                </div>
+
+                <h3>Mensagens</h3>
+                <div class="col-md-6 col-md-3 col-md-3" style="overflow: auto; height:200px;" id="ex3">
+                    <section ng-controller="PanelController as panel">
+                        <div ng-repeat="review in product.reviews" style="padding:3px;">
+                            <div class="reviewBox" style="padding:5px;">
+                                <b>{{review.stars}} Estrelas</b><br>
+                                {{review.body}}<br>
+                                <cite>-{{review.author}}</cite>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
